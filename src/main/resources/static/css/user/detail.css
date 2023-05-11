@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            font-size: 2rem;
+        }
+th, td {
+            border: 1px solid #999;
+            padding: 0.5rem;
+        }
+th {
+            background-color: #eee;
+        }
+
+h2 {
+    background-color: black;
+    color: white;
+    height: 60px;
+    line-height: 60px;
+    margin: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+h1 {
+    margin-bottom: 10px;
+    font-size: 50px;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Detail</title>
+    <link rel="stylesheet" th:href="@{/css/user/detail.css}">
+</head>
+<body>
+    <h2>日報管理システム</h2>
+    <h1>従業員情報 詳細ページ</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>社員番号</th>
+            <td th:text="${employee.authentication.code}"></td>
+        </tr>
+        <tr>
+            <th>氏名</th>
+            <td th:text="${employee.name}"></td>
+        </tr>
+        <tr>
+            <th>権限</th>
+            <td th:text="${employee.authentication.role}"></td>
+        </tr>
+        <tr>
+            <th>登録日時</th>
+            <td th:text="${#dates.format(employee.createdAt, 'yyyy/MM/dd HH:mm:ss')}"></td>
+        </tr>
+        <tr>
+            <th>更新日時</th>
+            <td th:text="${#dates.format(employee.updatedAt, 'yyyy/MM/dd HH:mm:ss')}"></td>
+        </tr>
+    </thead>
+</table>
+</body>
+</html>

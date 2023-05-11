@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+h2 {
+    background-color: black;
+    color: white;
+    height: 60px;
+    line-height: 60px;
+    margin: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+h1 {
+    margin-bottom: 10px;
+    font-size: 50px;
+}
+
+form {
+  width: 600px; /*フォーム全体の幅*/
+  padding: 20px; /*内側の余白*/
+}
+
+form div {
+  margin-bottom: 10px; /*各項目の間隔*/
+}
+
+label {
+  width: 50px; /*ラベルの幅*/
+}
+
+select {
+    width: 70px;
+}

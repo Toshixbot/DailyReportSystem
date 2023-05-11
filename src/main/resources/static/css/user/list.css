@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+table {
+  border-collapse: collapse;
+  width: 60%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+h2 {
+    background-color: black;
+    color: white;
+    height: 60px;
+    line-height: 60px;
+    margin: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+h1 {
+    margin-bottom: 10px;
+    font-size: 50px;
+}
