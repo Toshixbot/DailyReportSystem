@@ -57,7 +57,7 @@ public class UpdateController {
 
 
         employeeService.updateEmployee(employee);
-        return "employee/list";
+        return "redirect: /employee/list";
     }
 }
 

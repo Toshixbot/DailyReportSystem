@@ -10,7 +10,7 @@
     <h1>従業員情報 編集ページ</h1>
 
 
-        <form th:action="@{/update/{id}(id=${employee.id})}" method="post" th:object="${employee}" >
+        <form th:action="@{/employee/update/{id}(id=${employee.id})}" method="post" th:object="${employee}" >
 
         <input type="hidden" th:field="*{id}"/>
         <p>
