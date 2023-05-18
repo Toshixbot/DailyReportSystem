@@ -9,32 +9,34 @@
     <h2>日報管理システム</h2>
     <h1>従業員 新規登録ページ</h1>
 
-    <form th:action="@{employee/signup}" method="post">
+    <form th:action="@{/employee/signup}" method="post" th:object="${employee}">
         <div>
             <label for="employee-code">社員番号:</label>
             <br>
-            <input type="text" id="employee-code" name="employee-code" required>
+            <input type="text"  th:field="*{authentication.code}">
         </div>
         <div>
             <label for="name">氏名:</label>
             <br>
-            <input type="text" id="name" name="name" required>
+            <input type="text" th:field="*{name}">
         </div>
         <div>
             <label for="password">パスワード:</label>
             <br>
-            <input type="password" id="password" name="password" required>
+            <input type="password" th:field="*{authentication.password}" >
         </div>
         <div>
            <label for="role">権限</label>
            <br>
-           <select id="role" name="role" required>
-                <option value="admin">管理者</option>
-                <option value="user">一般</option>
+           <select th:field="*{role}">
+            <option value="" th:text="選択してください">
+            <option th:each="item:${T(com.techacademy.entity.Employee.Role).values()}" th:value="${item}" th:text="${item}">
   </select>
 </div>
 
-        <button type="submit">投稿</button>
+        <input type="submit" value="投稿">
+        <br>
+        <a href="/employee/list">一覧に戻る</a>
     </form>
 </body>
 </html>

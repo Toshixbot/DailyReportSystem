@@ -43,13 +43,7 @@ public class DetailController {
         return "detail";
     }
 
-    // 従業員詳細画面から編集画面に遷移する
-    @GetMapping("/edit/{id}")
-    public String editEmployee(@PathVariable Integer id, Model model) {
-        Employee employee = employeeService.findById(id).orElse(null);
-        model.addAttribute("employee", employee);
-        return "editEmployee";
-    }
+
 
     // 編集画面で更新ボタンが押されたときの処理
 

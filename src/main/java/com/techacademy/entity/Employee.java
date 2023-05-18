@@ -2,17 +2,20 @@ package com.techacademy.entity;
 
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Where;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +29,12 @@ import lombok.NoArgsConstructor;
 @Where(clause = "delete_flag = 0")
 public class Employee {
 
+
+    /** 権限用の列挙型 */
+    public static enum Role {
+        一般, 管理者
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer  id;
@@ -33,6 +42,9 @@ public class Employee {
     @Column(length = 20, nullable = false)
     private String name;
 
+    @Column(name = "role", length = 10)
+    @Enumerated(EnumType.STRING) // Role列挙型
+    private Employee.Role role;
 
     @Column(name = "delete_flag")
     private Integer deleteFlag;
@@ -43,22 +55,21 @@ public class Employee {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
-    @OneToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
 
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     private Authentication authentication;
 
-    //@Column(name = "password" , nullable = false)
-    //private String password;
-
-    //@Column(name = "role" , nullable = false)
-    //private String role;
-
-
-
+    public String getCode() {
+        return authentication != null ? authentication.getCode() : null;
     }
+
+    public String getPassword() {
+        return authentication != null ? authentication.getPassword() : null;
+    }
+
+}
+
+
 
 
 

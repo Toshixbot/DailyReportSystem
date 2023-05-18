@@ -3,11 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>New Employee Registration</title>
-    <link rel="stylesheet" th:href="@{/css/user/signup.css}">
+    <link rel="stylesheet" th:href="@{/css/user/update.css}">
 </head>
 <body>
     <h2>日報管理システム</h2>
-    <h1>従業員 編集ページ</h1>
+    <h1>従業員情報 編集ページ</h1>
+
+
+        <form th:action="@{/update/{id}/(id=${employee.id})}" method="post" th:object="${employee}" >
+
+        <input type="hidden" th:field="*{id}"/>
+        <p>
+            <label for="employee-code">社員番号</label>
+            <br>
+            <span th:text="${employee.authentication.code}"></span>
+        </p>
+                <p>
+            <label for="name">氏名</label>
+            <br>
+            <input type="text" th:field="*{name}" >
+        </p>
+        <p>
+            <label for="password">パスワード</label>
+            <br>
+            <input type="password" th:field="*{authentication.password}" />
+        </p>
+        <label for="role">権限</label>
+        <br>
+            <select th:field="*{role}" th:errorclass="err">
+                <option value="" th:text="選択してください" th:selected="${employee.role == ''}"></option>
+                <option
+                    th:each="item:${T(com.techacademy.entity.Employee.Role).values()}"
+                    th:value="${item}" th:text="${item}" th:selected="*{employee.role} == ${item}"></option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="投稿">
+
+  </form>
+<form method="POST" action="/employee/delete/${id}" id="delete-form">
+    <input type="hidden" name="_method" value="DELETE">
+    <a href="#" id="delete-link" data-employee-id="${employee.id}">この従業員情報を削除する</a>
+  <br>
+  <a href="/employee/list">一覧に戻る</a>
+</form>
+
+
+
 
 </body>
 </html>

@@ -7,9 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
-
-
 import com.techacademy.entity.Employee;
 import com.techacademy.service.EmployeeService;
 
@@ -22,20 +19,20 @@ public class EmployeeController {
     //** 一覧画面を表示*/
     @GetMapping("employee/list")
     public String showEmployeeList(Model model) {
-        List<Employee> employeeList = employeeService.findAll();
+        List<Employee> employeeList = employeeService.getEmployeeList();
+        int totalCount = employeeService.getEmployeeCount();
         model.addAttribute("employeeList", employeeList);
+        model.addAttribute("totalCount", totalCount);
         return "list";
     }
 
-
-
-    // 編集画面で更新ボタンが押されたときの処理
-
-
-
-
+    //全件レコード表示
 
     }
+
+
+
+
 
 
 
