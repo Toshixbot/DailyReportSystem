@@ -22,6 +22,11 @@ import lombok.NoArgsConstructor;
 @Table(name="authentication")
 public class Authentication {
 
+    /** 認証情報の権限のRole列挙型 */
+    public static enum Role {
+        一般, 管理者
+    }
+
     @Id
     @Column(name = "code", length = 20)
     private String code;

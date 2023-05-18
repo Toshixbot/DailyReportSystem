@@ -10,7 +10,7 @@
     <h1>従業員情報 編集ページ</h1>
 
 
-        <form th:action="@{/update/{id}/(id=${employee.id})}" method="post" th:object="${employee}" >
+        <form th:action="@{/update/{id}(id=${employee.id})}" method="post" th:object="${employee}" >
 
         <input type="hidden" th:field="*{id}"/>
         <p>
@@ -31,10 +31,10 @@
         <label for="role">権限</label>
         <br>
             <select th:field="*{role}" th:errorclass="err">
-                <option value="" th:text="選択してください" th:selected="${employee.role == ''}"></option>
+                <option value="" th:text="選択してください" th:selected="${role == null}"></option>
                 <option
-                    th:each="item:${T(com.techacademy.entity.Employee.Role).values()}"
-                    th:value="${item}" th:text="${item}" th:selected="*{employee.role} == ${item}"></option>
+                    th:each="item:${T(com.techacademy.entity.Authentication.Role).values()}"
+                    th:value="${item}" th:text="${item}" th:selected="*{role} == ${item}"></option>
             </select>
             <br>
             <br>

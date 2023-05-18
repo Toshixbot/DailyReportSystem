@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.techacademy.entity.Employee;
 import com.techacademy.service.EmployeeService;
 
 @Controller
-
+@RequestMapping("/employee")
 public class UpdateController {
     @Autowired
     private EmployeeService employeeService;
@@ -57,7 +57,7 @@ public class UpdateController {
 
 
         employeeService.updateEmployee(employee);
-        return "redirect:/employee/list";
+        return "employee/list";
     }
 }
 

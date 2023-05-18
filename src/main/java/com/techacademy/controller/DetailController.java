@@ -1,6 +1,6 @@
 package com.techacademy.controller;
 
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class DetailController {
         return "detail";
     }
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public String getDetail(@PathVariable("id") Integer id, Model model) {
         // 社員情報を取得
         Optional<Employee> employeeOptional = employeeService.findById(id);
@@ -40,13 +40,10 @@ public class DetailController {
         Employee employee = employeeOptional.get();
         model.addAttribute("employee", employee);
 
-        return "detail";
+        return "detail"; */
     }
 
 
 
-    // 編集画面で更新ボタンが押されたときの処理
-
-
-    }
+//}
 
