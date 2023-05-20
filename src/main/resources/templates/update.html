@@ -7,7 +7,8 @@
 </head>
 <body>
     <h2>日報管理システム</h2>
-    <h1>従業員情報 編集ページ</h1>
+    <h1 id="employee-detail-title">id: <span th:text="${employee.id}"></span> 従業員情報 編集ページ</h1>
+    <h3>(パスワードは変更する場合のみ入力してください)</h3>
 
 
         <form th:action="@{/employee/update/{id}(id=${employee.id})}" method="post" th:object="${employee}" >
@@ -30,24 +31,22 @@
         </p>
         <label for="role">権限</label>
         <br>
-            <select th:field="*{role}" th:errorclass="err">
-                <option value="" th:text="選択してください" th:selected="${role == null}"></option>
+            <select th:field="*{authentication.role}" th:errorclass="err">
+
                 <option
                     th:each="item:${T(com.techacademy.entity.Authentication.Role).values()}"
-                    th:value="${item}" th:text="${item}" th:selected="*{role} == ${item}"></option>
+                    th:value="${item}" th:text="${item}" th:selected="*{authentication.role} == ${item}"></option>
             </select>
             <br>
             <br>
             <input type="submit" value="投稿">
+            <br>
+            <a th:href="@{/employee/delete/{id}(id=${employee.id})}"  >この従業員情報を削除する</a>
+
+            <br>
+            <a href="/employee/list">一覧に戻る</a>
 
   </form>
-<form method="POST" action="/employee/delete/${id}" id="delete-form">
-    <input type="hidden" name="_method" value="DELETE">
-    <a href="#" id="delete-link" data-employee-id="${employee.id}">この従業員情報を削除する</a>
-  <br>
-  <a href="/employee/list">一覧に戻る</a>
-</form>
-
 
 
 

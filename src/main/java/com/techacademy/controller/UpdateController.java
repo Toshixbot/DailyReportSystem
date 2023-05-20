@@ -43,7 +43,7 @@ public class UpdateController {
         /*不足しているフィールドに値をセットする */
         employee.setName(updateEmployee.getName());
         employee.getAuthentication().setPassword(updateEmployee.getPassword());
-        employee.getAuthentication().setRole(updateEmployee.getRole());
+        employee.setRole(updateEmployee.getRole());
 
 
         employee.setDeleteFlag(0);
@@ -56,8 +56,8 @@ public class UpdateController {
         employee.setUpdatedAt(now);
 
 
-        employeeService.updateEmployee(employee);
-        return "redirect: /employee/list";
+        employeeService.saveEmployee(employee);
+        return "redirect:/employee/list";
     }
 }
 

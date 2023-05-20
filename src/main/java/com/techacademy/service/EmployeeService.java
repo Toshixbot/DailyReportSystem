@@ -38,13 +38,6 @@ public class EmployeeService {
         return employeeRepository.findById(id);
     }
 
-    public void createEmployee(Employee employee) {
-        employeeRepository.save(employee);
-    }
-
-    public void updateEmployee(Employee employee) {
-        employeeRepository.save(employee);
-    }
 
     public Employee getEmployeeById(Integer id) {
         Optional<Employee> optionalEmployee = employeeRepository.findById(id);
@@ -53,11 +46,6 @@ public class EmployeeService {
     @Transactional
     public Employee saveEmployee(Employee employee) {
         return employeeRepository.save(employee);
-    }
-
-    @Transactional
-    public void deleteEmployee(Integer id) {
-        employeeRepository.deleteByIdAndDeleteFlag(id, 0);
     }
 
 

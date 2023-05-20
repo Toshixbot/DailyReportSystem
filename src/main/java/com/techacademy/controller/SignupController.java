@@ -33,7 +33,7 @@ public class SignupController {
         employee.setName(employee.getName());
         employee.getAuthentication().setCode(employee.getCode());
         employee.getAuthentication().setPassword(employee.getPassword());
-        employee.getAuthentication().setRole(employee.getRole());
+        employee.setRole(employee.getRole());
 
 
         employee.setDeleteFlag(0);

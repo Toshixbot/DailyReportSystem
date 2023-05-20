@@ -36,7 +36,7 @@ public class Authentication {
 
     @Column(name = "role", length = 10)
     @Enumerated(EnumType.STRING) // Role列挙型を使用する
-    private Employee.Role role;
+    private Authentication.Role role;
 
 
     @OneToOne
