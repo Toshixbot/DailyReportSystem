@@ -43,7 +43,7 @@ public class UpdateController {
         /*不足しているフィールドに値をセットする */
         employee.setName(updateEmployee.getName());
         employee.getAuthentication().setPassword(updateEmployee.getPassword());
-        employee.setRole(updateEmployee.getRole());
+        employee.getAuthentication().setRole(updateEmployee.getAuthentication().getRole());
 
 
         employee.setDeleteFlag(0);

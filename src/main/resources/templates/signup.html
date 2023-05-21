@@ -28,9 +28,9 @@
         <div>
            <label for="role">権限</label>
            <br>
-           <select th:field="*{role}">
+           <select th:field="*{authentication.role}">
             <option value="" th:text="選択してください">
-            <option th:each="item:${T(com.techacademy.entity.Employee.Role).values()}" th:value="${item}" th:text="${item}">
+            <option th:each="item:${T(com.techacademy.entity.Authentication.Role).values()}" th:value="${item}" th:text="${item}">
   </select>
 </div>
 

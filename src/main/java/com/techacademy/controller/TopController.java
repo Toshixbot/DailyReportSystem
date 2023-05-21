@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/employee")
+@RequestMapping("/")
 public class TopController {
 
 
@@ -16,7 +16,7 @@ public class TopController {
 
 
     /**トップページを表示*/
-    @GetMapping("/top")
+    @GetMapping("/")
     public String getList() {
 
         return "top";

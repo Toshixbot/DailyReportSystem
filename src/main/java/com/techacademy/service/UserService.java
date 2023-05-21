@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.techacademy.repository.UserRepository;
 import com.techacademy.entity.Authentication;
+import com.techacademy.repository.UserRepository;
 
 
 @Service

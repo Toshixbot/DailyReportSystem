@@ -39,10 +39,7 @@ public class EmployeeService {
     }
 
 
-    public Employee getEmployeeById(Integer id) {
-        Optional<Employee> optionalEmployee = employeeRepository.findById(id);
-        return optionalEmployee.orElse(null);
-    }
+
     @Transactional
     public Employee saveEmployee(Employee employee) {
         return employeeRepository.save(employee);
